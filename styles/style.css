@@ -1,0 +1,18 @@
+body {
+    background-color: #eef9bf;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading {
+    width: 100%;
+    display: flex;
+}
+
+h1 {
+    color: #75B79E;
+    font-size: 56px;
+    letter-spacing: 0.4;
+    margin: 40px auto;
+    text-align: center;
+}
+
