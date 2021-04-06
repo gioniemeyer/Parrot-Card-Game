@@ -35,6 +35,10 @@ ul {
     width: 117px;
 }
 
+.hidden {
+    display: none;
+}
+
 @media(max-width: 614px) {
     ul {
         margin: 0 auto;
@@ -42,4 +46,3 @@ ul {
         align-items: center;
     }
 }
-
