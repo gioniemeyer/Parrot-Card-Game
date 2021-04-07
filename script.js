@@ -2,7 +2,9 @@ let IsValid;
 let NumberOfCards;
 
 function TurnCard(NumberOfCard) {
-    const CardNumber = document.querySelector(NumberOfCard);
+    const selector = NumberOfCard + " " + 'img'
+    const Card = document.querySelector(selector);
+    Card.setAttribute('src','images/bobrossparrot.gif');
 }
 
 function HowManyCards() {

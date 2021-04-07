@@ -35,6 +35,11 @@ ul {
     width: 117px;
 }
 
+.card img {
+    height: 100px;
+    width: 100px;
+}
+
 .hidden {
     display: none;
 }
