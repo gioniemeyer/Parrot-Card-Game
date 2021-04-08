@@ -25,15 +25,22 @@ function HowManyCards() {
 }
 
 function TurnCard(NumberOfCard) {
+    const standartParrot = NumberOfCard.children [0];
+    standartParrot.classList.toggle('hidden');
 
-    alert()
+    const gifParrot = NumberOfCard.children [1];
+    gifParrot.classList.toggle('hidden');
+
+    // const CardTurned = document.querySelector(NumberOfCard.children + ' front');
+    // CardTurned.classList.toggle('hidden');
+
 }
 
 function AskCheckNumber() {
 
     NumberOfCards = prompt('Com quantas cartas você quer jogar?');
 
-    if(4 < NumberOfCards && NumberOfCards < 15 && NumberOfCards % 2 === 0) {
+    if(3 < NumberOfCards && NumberOfCards < 15 && NumberOfCards % 2 === 0) {
         isValid = true;
     } else {
         isValid = false;
