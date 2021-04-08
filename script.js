@@ -2,8 +2,7 @@ let IsValid;
 let NumberOfCards;
 let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 let jogadas = 0;
-const lista = []
-
+const GifsList = []
 
 function HowManyCards() {
 
@@ -14,18 +13,18 @@ function HowManyCards() {
     }
 
     for(let x = 0; x < NumberOfCards / 2; x++) {
-        lista.push(Cards[x]);
-        lista.push(lista[x]);
+        GifsList.push(Cards[x]);
+        GifsList.push(Cards[x]);
     }
 
-    lista.sort(comparador);
+    GifsList.sort(comparador);
 
-    for(let i = 0; i < lista.length; i++) {
+    for(let i = 0; i < GifsList.length; i++) {
 
         let Board = document.querySelector('ul');
         Board.innerHTML += `<li onclick="TurnCard(this)">
         <img class="standardParrot" src="images/front.png" alt="parrot card">
-        <img class="gifParrot hidden" src="images/${lista[i]}.gif" alt="parrot card">
+        <img class="gifParrot hidden" src="images/${GifsList[i]}.gif" alt="parrot card">
         </li>`;
     }
    
