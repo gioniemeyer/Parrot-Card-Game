@@ -24,7 +24,7 @@ ul {
 }
 
 
-.card {
+li {
     align-items: center;
     background-color: #a7e9af;
     border: solid 1px #99CEA8;
@@ -33,12 +33,29 @@ ul {
     justify-content: center;
     margin: 34px 34px;
     width: 117px;
+    transform-style: preserve-3d;
+    /* transition: all .5s;
+    backface-visibility: hidden; */
 }
 
-.card img {
+li img {
     height: 100px;
     width: 100px;
 }
+
+/* .front {
+    transform: rotateY(180deg);
+    height: 100px;
+    width: 100px;
+    margin: auto auto;
+}
+
+.back {
+    transform: rotateY(0);
+    height: 100px;
+    width: 100px;
+    margin: auto auto;
+} */
 
 .hidden {
     display: none;
