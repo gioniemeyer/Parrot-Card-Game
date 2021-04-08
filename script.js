@@ -1,27 +1,38 @@
 let IsValid;
 let NumberOfCards;
-let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revestitparrot", "tripletsparrot", "unicornparrot"];
+let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
+let jogadas = 0;
+const lista = []
 
 
 function HowManyCards() {
 
-    AskCheckNumber()
+    AskCheckNumber();
 
     while(isValid === false) {
-        AskCheckNumber()
+        AskCheckNumber();
     }
 
-    for(let i = 0; i < NumberOfCards / 2; i++) {
+    for(let x = 0; x < NumberOfCards / 2; x++) {
+        lista.push(Cards[x]);
+        lista.push(lista[x]);
+    }
+
+    lista.sort(comparador);
+
+    for(let i = 0; i < lista.length; i++) {
+
         let Board = document.querySelector('ul');
         Board.innerHTML += `<li onclick="TurnCard(this)">
-        <img class="front" src="images/front.png" alt="parrot card">
-        <img class="back hidden" src="images/${Cards[i]}.gif" alt="parrot card">
-        </li>
-        <li onclick="TurnCard(this)">
-        <img class="front" src="images/front.png" alt="parrot card">
-        <img class="back hidden" src="images/${Cards[i]}.gif" alt="parrot card">
+        <img class="standardParrot" src="images/front.png" alt="parrot card">
+        <img class="gifParrot hidden" src="images/${lista[i]}.gif" alt="parrot card">
         </li>`;
-    }     
+    }
+   
+}
+  
+function comparador() {
+    return Math.random() - 0.5;
 }
 
 function TurnCard(NumberOfCard) {
@@ -30,9 +41,11 @@ function TurnCard(NumberOfCard) {
 
     const gifParrot = NumberOfCard.children [1];
     gifParrot.classList.toggle('hidden');
+    gifParrot.classList.add('chosen');
 
-    // const CardTurned = document.querySelector(NumberOfCard.children + ' front');
-    // CardTurned.classList.toggle('hidden');
+    // let Jogadas = 0;
+    // Jogadas = Jogadas + 1;
+    // Alert(Jogadas);
 
 }
 
