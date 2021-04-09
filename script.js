@@ -1,11 +1,12 @@
 let IsValid;
-let NumberOfCards = 0;
+let NumberOfCards;
 let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 let moves = 0;
 const GifsList = []
 let FirstOfPair;
-let acertos = 0;
+let hits = 0;
 let TimerOnScreen;
+let Answer;
 
 function DistributionOfCards() {
 
@@ -43,7 +44,7 @@ function CheckPair(NumberOfCard) {
     } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML && FirstOfPair !== NumberOfCard) {
         FirstOfPair.setAttribute('onclick', "");
         NumberOfCard.setAttribute('onclick', "");
-        acertos += 1
+        hits += 1
         clearInterval(Id);
         FirstOfPair = undefined;
     } else {
@@ -52,9 +53,17 @@ function CheckPair(NumberOfCard) {
         FirstOfPair = undefined;
     }
 
-    if(acertos === NumberOfCards / 2) {
+    if(hits === NumberOfCards / 2) {
         setTimeout(alert, 1000, `Você ganhou em ${moves} jogadas em ${TimerOnScreen} segundos!`);
+        Answer = setTimeout(PlayAgaing, 1000);
     }
+}
+
+function PlayAgaing() {
+    Answer = prompt("Quer jogar de novo (sim ou não)?");
+
+    if(Answer === 'sim') {
+        window.location.reload(true)    }
 }
 
 function TurnCard(NumberOfCard) {
