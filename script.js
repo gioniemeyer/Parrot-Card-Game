@@ -65,7 +65,8 @@ function PlayAgaing() {
     Answer = prompt("Quer jogar de novo (sim ou não)?");
 
     if(Answer === 'sim') {
-        window.location.reload(true)    }
+        window.location.reload(true)    
+    }
 }
 
 function TurnCard(NumberOfCard) {
