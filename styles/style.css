@@ -16,6 +16,20 @@ h1 {
     text-align: center;
 }
 
+p {
+    font-size: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #99CEA8;
+    color: #fff;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;

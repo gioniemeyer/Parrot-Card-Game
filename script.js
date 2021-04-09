@@ -1,10 +1,11 @@
 let IsValid;
-let NumberOfCards;
+let NumberOfCards = 0;
 let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 let moves = 0;
 const GifsList = []
 let FirstOfPair;
 let acertos = 0;
+let TimerOnScreen;
 
 function DistributionOfCards() {
 
@@ -43,6 +44,7 @@ function CheckPair(NumberOfCard) {
         FirstOfPair.setAttribute('onclick', "");
         NumberOfCard.setAttribute('onclick', "");
         acertos += 1
+        clearInterval(Id);
         FirstOfPair = undefined;
     } else {
         setTimeout(TurnCard, 1000, NumberOfCard);
@@ -51,7 +53,7 @@ function CheckPair(NumberOfCard) {
     }
 
     if(acertos === NumberOfCards / 2) {
-        setTimeout(alert, 1000, `Você ganhou em ${moves} jogadas!`);
+        setTimeout(alert, 1000, `Você ganhou em ${moves} jogadas em ${TimerOnScreen} segundos!`);
     }
 }
 
@@ -69,6 +71,18 @@ function AskECheckNumber() {
         isValid = true;
     } else {
         isValid = false;
+    }
+
+    Id = setInterval(timer, 1000);
+
+}
+
+function timer(NumberOfCards) {
+    
+    if(NumberOfCards !== 0) {
+        TimerOnScreen = parseInt(document.querySelector('p').innerHTML);
+        TimerOnScreen += 1;
+        document.querySelector('p').innerHTML = TimerOnScreen;
     }
 }
 
