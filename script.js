@@ -24,18 +24,18 @@ function DistributionOfCards() {
     for(let i = 0; i < GifsList.length; i++) {
 
         let Board = document.querySelector('ul');
-        Board.innerHTML += `<li onclick="TurnCard(this)">
+        Board.innerHTML += `<li onclick="CheckPair(this)">
         <img class="standardParrot" src="images/front.png" alt="parrot card">
         <img class="gifParrot hidden" src="images/${GifsList[i]}.gif" alt="parrot card">
         </li>`;
     }
 }
 
-function TurnCard(NumberOfCard) {
+function CheckPair(NumberOfCard) {
 
     moves += 1;
 
-    TurningCard(NumberOfCard)
+    TurnCard(NumberOfCard)
 
     if(FirstOfPair === undefined) {
         FirstOfPair = NumberOfCard;
@@ -45,13 +45,17 @@ function TurnCard(NumberOfCard) {
         acertos += 1
         FirstOfPair = undefined;
     } else {
-        setTimeout(TurningCard, 2000, NumberOfCard);
-        setTimeout(TurningCard, 2000, FirstOfPair);
+        setTimeout(TurnCard, 1000, NumberOfCard);
+        setTimeout(TurnCard, 1000, FirstOfPair);
         FirstOfPair = undefined;
+    }
+
+    if(acertos === NumberOfCards / 2) {
+        setTimeout(alert, 1000, `Você ganhou em ${moves} jogadas!`);
     }
 }
 
-function TurningCard(NumberOfCard) {
+function TurnCard(NumberOfCard) {
     NumberOfCard.classList.toggle('chosen');
 
     const standardParrot = NumberOfCard.children [0];
