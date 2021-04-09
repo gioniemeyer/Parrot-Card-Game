@@ -3,11 +3,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.heading {
-    display: flex;
-    width: 100%;
-}
-
 h1 {
     color: #75B79E;
     font-size: 56px;

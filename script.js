@@ -40,7 +40,7 @@ function CheckPair(NumberOfCard) {
 
     if(FirstOfPair === undefined) {
         FirstOfPair = NumberOfCard;
-    } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML) {
+    } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML && FirstOfPair !== NumberOfCard) {
         FirstOfPair.setAttribute('onclick', "");
         NumberOfCard.setAttribute('onclick', "");
         acertos += 1
