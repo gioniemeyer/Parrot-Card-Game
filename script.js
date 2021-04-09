@@ -25,8 +25,8 @@ function DistributionOfCards() {
 
         let Board = document.querySelector('ul');
         Board.innerHTML += `<li onclick="CheckPair(this)">
-        <img class="standardParrot" src="images/front.png" alt="parrot card">
-        <img class="gifParrot hidden" src="images/${GifsList[i]}.gif" alt="parrot card">
+        <img class="front-face" src="images/front.png" alt="parrot card">
+        <img class="back-face" src="images/${GifsList[i]}.gif" alt="parrot card">
         </li>`;
     }
 }
@@ -56,13 +56,9 @@ function CheckPair(NumberOfCard) {
 }
 
 function TurnCard(NumberOfCard) {
-    NumberOfCard.classList.toggle('chosen');
 
-    const standardParrot = NumberOfCard.children [0];
-    standardParrot.classList.toggle('hidden');
+    NumberOfCard.classList.toggle('rotate');
 
-    const gifParrot = NumberOfCard.children [1];
-    gifParrot.classList.toggle('hidden');
 }
 
 function AskECheckNumber() {

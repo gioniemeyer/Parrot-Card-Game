@@ -23,7 +23,6 @@ ul {
     margin: 0 100px;
 }
 
-
 li {
     align-items: center;
     background-color: #a7e9af;
@@ -34,31 +33,28 @@ li {
     margin: 34px 34px;
     width: 117px;
     transform-style: preserve-3d;
-    /* transition: all .5s;
-    backface-visibility: hidden; */
+    transition: all .5s;
+    position: relative;
+}
+
+.back-face {
+    transform: rotateY(180deg);
+  }
+
+.front-face {
+    transform: rotateY(0deg);
 }
 
 li img {
     height: 100px;
     width: 100px;
+    position: absolute;
+    top: 23px;
+    left: 8px;
 }
 
-/* .front {
+.rotate {
     transform: rotateY(180deg);
-    height: 100px;
-    width: 100px;
-    margin: auto auto;
-}
-
-.back {
-    transform: rotateY(0);
-    height: 100px;
-    width: 100px;
-    margin: auto auto;
-} */
-
-.hidden {
-    display: none;
 }
 
 @media(max-width: 614px) {
