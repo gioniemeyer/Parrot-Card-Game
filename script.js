@@ -10,6 +10,8 @@ let Answer;
 
 function DistributionOfCards() {
 
+    Cards.sort(compare);
+
     AskECheckNumber();
 
     while(isValid === false) {
@@ -21,7 +23,7 @@ function DistributionOfCards() {
         GifsList.push(Cards[x]);
     }
 
-    GifsList.sort(comparador);
+    GifsList.sort(compare);
 
     for(let i = 0; i < GifsList.length; i++) {
 
@@ -95,7 +97,7 @@ function timer(NumberOfCards) {
     }
 }
 
-function comparador() {
+function compare() {
     return Math.random() - 0.5;
 }
 
