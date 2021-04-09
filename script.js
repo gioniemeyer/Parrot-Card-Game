@@ -4,7 +4,7 @@ let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "r
 let moves = 0;
 const GifsList = []
 let FirstOfPair;
-let SecondOfPair;
+let acertos = 0;
 
 function DistributionOfCards() {
 
@@ -35,56 +35,31 @@ function TurnCard(NumberOfCard) {
 
     moves += 1;
 
+    TurningCard(NumberOfCard)
+
+    if(FirstOfPair === undefined) {
+        FirstOfPair = NumberOfCard;
+    } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML) {
+        FirstOfPair.setAttribute('onclick', "");
+        NumberOfCard.setAttribute('onclick', "");
+        acertos += 1
+        FirstOfPair = undefined;
+    } else {
+        setTimeout(TurningCard, 2000, NumberOfCard);
+        setTimeout(TurningCard, 2000, FirstOfPair);
+        FirstOfPair = undefined;
+    }
+}
+
+function TurningCard(NumberOfCard) {
     NumberOfCard.classList.toggle('chosen');
-    NumberOfCard.setAttribute('onclick', "");
 
     const standardParrot = NumberOfCard.children [0];
     standardParrot.classList.toggle('hidden');
 
     const gifParrot = NumberOfCard.children [1];
     gifParrot.classList.toggle('hidden');
-
-    // pra girar a carta acho que preciso usar NumberOfCard.alguma coisa
-
-    //pegar o conteudo do GifsList da primeira carta clicada
-    //adicionar jogada
-    //pegar o conteudo do GifsList da segunda carta clicada
-    //adicionar jogada
-    //comparar os indices
-        // se as duas forem iguais, remover o onclick das duas
-        // se as duas forem diferentes, add hidden no gifParrot e remove hidden do Standard Parrot
-
-    if(FirstOfPair === undefined) {
-        FirstOfPair = NumberOfCard;
-    } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML) {
-        alert('iguais')
-        FirstOfPair = undefined;
-    }
-
-
-
-
-
-
-
-
-    
-    // let Pairs = document.querySelectorAll('.chosen').length;
-    // if(Pairs % 2 !== 0 ) {
-    //     FirstOfPair = NumberOfCard.children [1];
-    // } else {
-    //     SecondOfPair = NumberOfCard.children [1];
-    // }
-    
-    // if (FirstOfPair !== SecondOfPair) {
-    //     FirstOfPair.setAttribute('onclick', "=TurnCard(this)");
-    //     SecondOfPair.setAttribute('onclick', "=TurnCard(this)");
-    // }
-
 }
-
-
-
 
 function AskECheckNumber() {
 
