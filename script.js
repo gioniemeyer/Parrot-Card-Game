@@ -1,15 +1,17 @@
 let IsValid;
 let NumberOfCards;
 let Cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
-let jogadas = 0;
+let moves = 0;
 const GifsList = []
+let FirstOfPair;
+let SecondOfPair;
 
-function HowManyCards() {
+function DistributionOfCards() {
 
-    AskCheckNumber();
+    AskECheckNumber();
 
     while(isValid === false) {
-        AskCheckNumber();
+        AskECheckNumber();
     }
 
     for(let x = 0; x < NumberOfCards / 2; x++) {
@@ -27,28 +29,64 @@ function HowManyCards() {
         <img class="gifParrot hidden" src="images/${GifsList[i]}.gif" alt="parrot card">
         </li>`;
     }
-   
-}
-  
-function comparador() {
-    return Math.random() - 0.5;
 }
 
 function TurnCard(NumberOfCard) {
-    const standartParrot = NumberOfCard.children [0];
-    standartParrot.classList.toggle('hidden');
+
+    moves += 1;
+
+    NumberOfCard.classList.toggle('chosen');
+    NumberOfCard.setAttribute('onclick', "");
+
+    const standardParrot = NumberOfCard.children [0];
+    standardParrot.classList.toggle('hidden');
 
     const gifParrot = NumberOfCard.children [1];
     gifParrot.classList.toggle('hidden');
-    gifParrot.classList.add('chosen');
 
-    // let Jogadas = 0;
-    // Jogadas = Jogadas + 1;
-    // Alert(Jogadas);
+    // pra girar a carta acho que preciso usar NumberOfCard.alguma coisa
+
+    //pegar o conteudo do GifsList da primeira carta clicada
+    //adicionar jogada
+    //pegar o conteudo do GifsList da segunda carta clicada
+    //adicionar jogada
+    //comparar os indices
+        // se as duas forem iguais, remover o onclick das duas
+        // se as duas forem diferentes, add hidden no gifParrot e remove hidden do Standard Parrot
+
+    if(FirstOfPair === undefined) {
+        FirstOfPair = NumberOfCard;
+    } else if(FirstOfPair.innerHTML === NumberOfCard.innerHTML) {
+        alert('iguais')
+        FirstOfPair = undefined;
+    }
+
+
+
+
+
+
+
+
+    
+    // let Pairs = document.querySelectorAll('.chosen').length;
+    // if(Pairs % 2 !== 0 ) {
+    //     FirstOfPair = NumberOfCard.children [1];
+    // } else {
+    //     SecondOfPair = NumberOfCard.children [1];
+    // }
+    
+    // if (FirstOfPair !== SecondOfPair) {
+    //     FirstOfPair.setAttribute('onclick', "=TurnCard(this)");
+    //     SecondOfPair.setAttribute('onclick', "=TurnCard(this)");
+    // }
 
 }
 
-function AskCheckNumber() {
+
+
+
+function AskECheckNumber() {
 
     NumberOfCards = prompt('Com quantas cartas você quer jogar?');
 
@@ -58,4 +96,9 @@ function AskCheckNumber() {
         isValid = false;
     }
 }
-HowManyCards()
+
+function comparador() {
+    return Math.random() - 0.5;
+}
+
+DistributionOfCards()
