@@ -18,6 +18,16 @@ A fun memory game with cards based on parrot gifs, ideal for spending free time
     - If yes the user must input another valid number of cards. 
     - If not, nothing happens.
     
+## Technologies
+
+The following tools and frameworks were used in the construction of the project:<br>
+
+<p>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/styled-components%20-%2320232a.svg?&style=for-the-badge&color=b8679e&logo=styled-components&logoColor=%3a3a3a'>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white'>
+  <img style='margin: 5px;' src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+</p>
+
 ## How to run
 
 1. Clone this repository
